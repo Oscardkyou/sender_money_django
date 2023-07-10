@@ -1,119 +1,42 @@
-This code is for registering and customizing the admin interface for two models,
-UserProfile
- and
-Transaction
-, in a Django project.
+# Проект Django для отправки денег
 
-For the
-UserProfile
- model, the code creates an admin class
-UserProfileAdmin
- that inherits from
-admin.ModelAdmin
-. This class specifies how the
-UserProfile
- model should be displayed in the admin interface.
+[![Django](https://img.shields.io/badge/Django-3.2-092E20.svg)](https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.9-3776AB.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-The
-list_display
- attribute is a list of fields that will be displayed in the admin list view for
-UserProfile
- instances. In this case, it includes the
-get_first_name
-,
-get_last_name
-,
-get_email
-,
-balance
-,
-iin
-,
-phone
-,
-created_at
-, and
-get_image
- methods, which will be used to display the corresponding values for each instance.
+Этот проект на Django представляет собой систему для отправки денег с использованием веб-интерфейса.
 
-The
-search_fields
- attribute is a list of fields that will be used to search for
-UserProfile
- instances in the admin interface. In this case, it includes the
-user__first_name
-,
-user__last_name
-,
-phone
-, and
-iin
- fields.
+## Описание
 
-The
-list_filter
- attribute is a list of fields that will be used to filter
-UserProfile
- instances in the admin interface. In this case, it includes the
-created_at
- field.
+Проект включает две основные модели: UserProfile и Transaction. Модель UserProfile содержит информацию о пользователях системы, включая их персональные данные и баланс счета. Модель Transaction используется для записи и отслеживания денежных операций между пользователями.
 
-The
-get_first_name
-,
-get_last_name
-,
-get_email
-, and
-get_image
- methods are custom methods that return specific values based on the
-UserProfile
- instance passed as an argument. These methods are used to customize the display of certain fields in the admin interface. For example, the
-get_image
- method checks if the
-UserProfile
- instance has an
-image
- attribute and, if so, displays an HTML
-<img>
- tag with the image URL.
+Административный интерфейс для этих моделей был настроен для удобного управления данными.
 
-For the
-Transaction
- model, the code creates an admin class
-TransactionAdmin
- that also inherits from
-admin.ModelAdmin
-. This class specifies how the
-Transaction
- model should be displayed in the admin interface.
+## Особенности
 
-The
-list_display
- attribute for the
-TransactionAdmin
- class specifies the fields that will be displayed in the admin list view for
-Transaction
- instances. In this case, it includes the
-sender
-,
-recipient
-,
-summa
-, and
-created_at
- fields.
+- Регистрация и аутентификация пользователей.
+- Возможность просмотра и редактирования профилей пользователей.
+- Отправка денежных переводов между пользователями.
+- Отображение истории транзакций.
 
-The
-search_fields
- attribute for the
-TransactionAdmin
- class specifies the fields that will be used to search for
-Transaction
- instances in the admin interface. In this case, it includes the
-sender__user__first_name
-,
-sender__user__last_name
-, and
-summa
- fields.
+## Запуск проекта
+
+Чтобы запустить проект локально, следуйте инструкциям:
+
+1. Клонируйте репозиторий на свой локальный компьютер.
+2. Установите необходимые зависимости, выполнив команду: `pip install -r requirements.txt`.
+3. Примените миграции с помощью команды: `python manage.py migrate`.
+4. Запустите сервер разработки: `python manage.py runserver`.
+5. Откройте веб-браузер и перейдите по адресу `http://localhost:8000` для доступа к приложению.
+
+## Вклад
+
+Вы можете внести свой вклад в проект, создавая запросы на извлечение (pull requests) с предложенными изменениями. Убедитесь, что тщательно описываете ваши изменения и следуете соглашениям о стиле кодирования.
+
+## Лицензия
+
+Этот проект лицензирован под MIT License. Подробности см. в файле [LICENSE](LICENSE).
+
+---
+
+Обратите внимание, что вам может потребоваться обновить пути, инструкции и другие детали, чтобы они соответствовали вашему конкретному проекту.
